@@ -1,0 +1,41 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.env
+.venv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Local development
+.env.local
+.env.development
+.env.test
+.env.production
+node_modules/
+
+# Logs
+*.log

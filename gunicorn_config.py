@@ -1,18 +1,24 @@
-"""Gunicorn configuration file."""
+"""Gunicorn configuration file optimized for Docker deployment."""
+import multiprocessing
 
 # Gunicorn config variables
-workers = 1
+# Dynamically set the number of workers based on available CPU cores
+workers = multiprocessing.cpu_count() * 2 + 1
 worker_class = "gthread"
 threads = 4
 bind = "0.0.0.0:8000"
 daemon = False
-pidfile = "gunicorn.pid"
+pidfile = None  # No pidfile in Docker containers
 umask = 0
-user = None
+user = None  # Docker runs as defined user in Dockerfile
 group = None
 tmp_upload_dir = None
+worker_tmp_dir = "/tmp"
+graceful_timeout = 30
+timeout = 60
+keepalive = 5
 
-# Logging
+# Logging - output to stdout/stderr for Docker to capture
 errorlog = "-"
 loglevel = "info"
 accesslog = "-"

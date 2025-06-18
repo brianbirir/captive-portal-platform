@@ -41,10 +41,6 @@ pipenv run python wsgi.py
 
 This will start the Flask development server on `http://127.0.0.1:5000/`
 
-## Production
-
-For detailed production deployment instructions, please refer to the [Deployment Guide](./docs/deployment.md).
-
 ### Docker Management Script
 
 For convenience, a management script is provided that supports both development and production environments:
@@ -81,7 +77,7 @@ When running with Docker, you can customize the application behavior using envir
 - `FLASK_APP`: The entry point to the Flask application (default: `wsgi.py`)
 - `FLASK_ENV`: The environment to run Flask in (`development` or `production`)
 - `SECRET_KEY`: Secret key for session signing (change this in production!)
-- `DATABASE_URL`: SQLite database connection string (default: `sqlite:///captive_portal.db`)
+- `DATABASE_URL`: Database connection string (default being SQLite: `sqlite:///captive_portal.db`)
 
 You can modify these values in the `docker-compose.yml` file or pass them when running the container:
 

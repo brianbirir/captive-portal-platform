@@ -273,6 +273,72 @@ captive-portal-platform/
 
 For easy deployment on a Raspberry Pi with Nginx as a reverse proxy, a comprehensive deployment script is included.
 
+### Deployment Flow
+
+Below is a visual representation of the deployment workflow:
+
+```mermaid
+flowchart TD
+    start([Start]) --> parse[Parse Command Line Arguments]
+    parse --> checkRoot[Check Root Permissions]
+    checkRoot --> updateSystem{Update System?}
+    
+    updateSystem -->|Yes| doUpdate[Update System Packages]
+    updateSystem -->|No| skipUpdate[Skip System Update]
+    doUpdate --> installDep
+    skipUpdate --> installDep
+    
+    installDep[Install Dependencies] --> setupDirs[Set Up Application Directories]
+    setupDirs --> cloneRepo[Clone/Copy Repository]
+    cloneRepo --> configEnv[Configure Environment]
+    
+    configEnv --> deployMethod{Use Docker?}
+    
+    deployMethod -->|Yes| dockerSetup[Set Up Docker Environment]
+    deployMethod -->|No| directSetup[Set Up Python Environment]
+    
+    directSetup --> setupDB[Initialize Database]
+    setupDB --> createAdmin[Create Admin User]
+    createAdmin --> createService[Create Systemd Service]
+    
+    dockerSetup --> createComposeFile[Create docker-compose File]
+    createComposeFile --> buildContainer[Build & Start Container]
+    
+    createService --> configNginx
+    buildContainer --> configNginx
+    
+    configNginx[Configure Nginx Reverse Proxy] --> configNetwork[Configure Network]
+    configNetwork --> verifyInstall[Verify Installation]
+    
+    verifyInstall --> setupCaptive{Set Up Captive Portal?}
+    
+    setupCaptive -->|Yes| installDnsmasq[Install dnsmasq & hostapd]
+    setupCaptive -->|No| endPoint
+    
+    installDnsmasq --> configDnsmasq[Configure DNS Redirection]
+    configDnsmasq --> configHostapd[Configure WiFi Access Point]
+    configHostapd --> configInterfaces[Configure Network Interfaces]
+    configInterfaces --> setupIptables[Set Up IP Forwarding & NAT]
+    setupIptables --> enableServices[Enable Required Services]
+    enableServices --> rebootPrompt{Reboot Now?}
+    
+    rebootPrompt -->|Yes| reboot[Reboot System]
+    rebootPrompt -->|No| endPoint
+    
+    reboot --> endPoint
+    endPoint([End])
+    
+    classDef decision fill:#ffcc99,stroke:#333,stroke-width:1px;
+    classDef process fill:#bbdefb,stroke:#333,stroke-width:1px;
+    classDef start fill:#b9f6ca,stroke:#333,stroke-width:1px;
+    classDef endpoint fill:#ffcdd2,stroke:#333,stroke-width:1px;
+    
+    class start start;
+    class endPoint endpoint;
+    class updateSystem,deployMethod,setupCaptive,rebootPrompt decision;
+    class doUpdate,skipUpdate,installDep,setupDirs,cloneRepo,configEnv,dockerSetup,directSetup,setupDB,createAdmin,createService,createComposeFile,buildContainer,configNginx,configNetwork,verifyInstall,installDnsmasq,configDnsmasq,configHostapd,configInterfaces,setupIptables,enableServices,reboot process;
+```
+
 ### Requirements for Raspberry Pi
 
 - Raspberry Pi with Raspberry Pi OS (formerly Raspbian)

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Login | Captive Portal Platform{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold text-center text-indigo-600 mb-6">Login</h2>
+    <form method="POST" action="{{ url_for('auth.login') }}">
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+            <input type="email" id="email" name="email" 
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500"
+                   required>
+        </div>
+        <div class="mb-6">
+            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+            <input type="password" id="password" name="password"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500"
+                   required>
+        </div>
+        <div class="flex items-center justify-center">
+            <button type="submit" 
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-200">
+                Login
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block additional_css %}
+{% endblock %}

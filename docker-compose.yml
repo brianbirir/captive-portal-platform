@@ -8,10 +8,14 @@ services:
       - "8000:8000"
     volumes:
       - ./app:/app/app
+      - ./migrations:/app/migrations
+      - ./captive_portal.db:/app/captive_portal.db
     environment:
       - FLASK_APP=wsgi.py
-      - FLASK_ENV=production
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
       - SECRET_KEY=change-me-in-production  # Change this for production
+      - DATABASE_URL=sqlite:///captive_portal.db
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]

@@ -54,5 +54,12 @@ COPY --chown=appuser:appuser . .
 # Expose the port
 EXPOSE 8000
 
-# Run the application with Gunicorn
-CMD gunicorn -c gunicorn_config.py wsgi:app
+# Create directory for migrations if it doesn't exist
+RUN mkdir -p /app/migrations
+
+# Set up entrypoint script to handle migrations
+COPY --chown=appuser:appuser docker-entrypoint.sh /app/docker-entrypoint.sh
+RUN chmod +x /app/docker-entrypoint.sh
+
+# Run entrypoint script which handles migrations before starting Gunicorn
+ENTRYPOINT ["/app/docker-entrypoint.sh"]

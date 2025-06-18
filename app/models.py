@@ -1,14 +1,18 @@
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from app import login_manager
+from app import login_manager, db
+from datetime import datetime
 
-class User(UserMixin):
+class User(UserMixin, db.Model):
     """User account model."""
     
-    def __init__(self, id, email):
-        self.id = id
-        self.email = email
-        self.password_hash = None
+    __tablename__ = 'users'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(200), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     
     def set_password(self, password):
         """Create hashed password."""
@@ -17,12 +21,11 @@ class User(UserMixin):
     def check_password(self, password):
         """Check hashed password."""
         return check_password_hash(self.password_hash, password)
+    
+    def __repr__(self):
+        return f'<User {self.email}>'
 
 @login_manager.user_loader
 def load_user(user_id):
     """Check if user is logged-in upon page load."""
-    # In a real application, this would query your database
-    if int(user_id) == 1:  # Mock user has ID=1
-        mock_user = User(id=1, email='user@example.com')
-        return mock_user
-    return None
+    return User.query.get(int(user_id))

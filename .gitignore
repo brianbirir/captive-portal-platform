@@ -44,3 +44,8 @@ ENV/
 # Logs
 *.log
 gunicorn.pid
+
+# Database
+*.db
+captive_portal.db
+migrations/versions/

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Access Denied | Captive Portal Platform{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="neo-brutal-element border-4 border-black bg-neobrutalism-pink p-8 text-center">
+        <h1 class="text-4xl font-black mb-6 transform -rotate-2 text-white">ACCESS DENIED</h1>
+        
+        <div class="my-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        
+        <p class="text-xl font-bold mb-6 text-white">You must be logged in to view this page.</p>
+        
+        <div class="mt-8">
+            <a href="{{ url_for('auth.login') }}" class="neo-brutal-button bg-white px-8 py-3 text-xl">
+                LOGIN NOW →
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

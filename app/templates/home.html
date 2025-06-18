@@ -3,12 +3,73 @@
 {% block title %}Home | Captive Portal Platform{% endblock %}
 
 {% block content %}
-<div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
-    <h2 class="text-2xl font-bold text-indigo-700 mb-4">Welcome, {{ current_user.email }}!</h2>
-    <p class="text-gray-700">You have successfully logged into the Captive Portal Platform.</p>
-    <div class="mt-6 p-4 bg-indigo-50 rounded-lg border border-indigo-100">
-        <h3 class="text-lg font-semibold text-indigo-600 mb-2">Your Dashboard</h3>
-        <p class="text-gray-600">This is your personalized dashboard where you can manage your captive portal settings.</p>
+<div class="max-w-5xl mx-auto">
+    <!-- Welcome Section -->
+    <div class="neo-brutal-element bg-white border-4 border-black mb-10 p-8">
+        <h2 class="text-4xl font-bold mb-4 transform -rotate-1">
+            <span class="bg-neobrutalism-yellow px-4 py-1 inline-block">WELCOME,</span> {{ current_user.email }}!
+        </h2>
+        <p class="text-xl my-4">You have successfully logged into the Captive Portal Platform.</p>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <!-- Stats Card -->
+        <div class="neo-brutal-element border-4 border-black bg-neobrutalism-green p-6">
+            <h3 class="text-2xl font-bold mb-4 uppercase tracking-wide">Stats</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between">
+                    <span class="font-bold">ACTIVE USERS:</span>
+                    <span class="font-mono font-bold">1,234</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold">BANDWIDTH:</span>
+                    <span class="font-mono font-bold">42.5 GB</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold">UPTIME:</span>
+                    <span class="font-mono font-bold">99.8%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Card -->
+        <div class="neo-brutal-element border-4 border-black bg-neobrutalism-yellow p-6">
+            <h3 class="text-2xl font-bold mb-4 uppercase tracking-wide">Quick Actions</h3>
+            <div class="space-y-3">
+                <button class="neo-brutal-button w-full py-2 text-left pl-4 bg-white">CONFIGURE PORTAL →</button>
+                <button class="neo-brutal-button w-full py-2 text-left pl-4 bg-white">USER MANAGEMENT →</button>
+                <button class="neo-brutal-button w-full py-2 text-left pl-4 bg-white">VIEW REPORTS →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Status -->
+    <div class="neo-brutal-element bg-white border-4 border-black mb-10 p-8">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold uppercase">System Status</h3>
+            <div class="neo-brutal-element bg-neobrutalism-green text-black font-bold px-4 py-1">ONLINE</div>
+        </div>
+        <p class="text-lg mb-4">All systems are functioning normally. Last update: 5 minutes ago.</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+            <div class="neo-brutal-element p-3 text-center bg-white">
+                <div class="font-bold">NETWORK</div>
+                <div class="font-mono text-neobrutalism-green font-bold">✓ OK</div>
+            </div>
+            <div class="neo-brutal-element p-3 text-center bg-white">
+                <div class="font-bold">DATABASE</div>
+                <div class="font-mono text-neobrutalism-green font-bold">✓ OK</div>
+            </div>
+            <div class="neo-brutal-element p-3 text-center bg-white">
+                <div class="font-bold">AUTH</div>
+                <div class="font-mono text-neobrutalism-green font-bold">✓ OK</div>
+            </div>
+            <div class="neo-brutal-element p-3 text-center bg-white">
+                <div class="font-bold">API</div>
+                <div class="font-mono text-neobrutalism-green font-bold">✓ OK</div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,4 +1,101 @@
-/* 
-   Tailwind CSS is now used via CDN. 
-   This file is kept as a placeholder for any custom CSS that might be needed in the future.
-*/
+/* Neo-brutalism specific styles */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/* Global brutalist styles */
+.neo-brutal-element {
+  border: 3px solid #000000;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.neo-brutal-element:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px rgba(0,0,0,1);
+}
+
+.neo-brutal-element:active {
+  transform: translate(0px, 0px);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
+.neo-brutal-button {
+  border: 3px solid #000000;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+  position: relative;
+  transition: all 0.2s ease;
+  background-color: #FFFF03;
+  color: #000000;
+  font-weight: 700;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.neo-brutal-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px rgba(0,0,0,1);
+}
+
+.neo-brutal-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
+.neo-brutal-input {
+  border: 3px solid #000000;
+  background-color: #ffffff;
+  padding: 10px;
+  font-family: 'Space Mono', monospace;
+}
+
+.neo-brutal-input:focus {
+  outline: none;
+  border-color: #ff2cc0;
+  background-color: #f9f9f9;
+}
+
+/* Neo-brutalism animation */
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wiggle-on-hover:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+/* Custom checkbox */
+.neo-brutal-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #000000;
+  cursor: pointer;
+  position: relative;
+}
+
+.neo-brutal-checkbox:checked {
+  background-color: #FFFF03;
+}
+
+.neo-brutal-checkbox:checked:after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+/* Tilt effect */
+.tilt-on-hover {
+  transition: transform 0.2s ease;
+}
+
+.tilt-on-hover:hover {
+  transform: rotate(1deg);
+}

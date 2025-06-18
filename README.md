@@ -1,12 +1,14 @@
 # Captive Portal Platform
 
-A Flask-based captive portal platform with authentication and a modern Tailwind CSS UI.
+A Flask-based captive portal platform.
 
 ## Features
 
 - User authentication system
 - Secure password handling
-- Modern, responsive UI using Tailwind CSS
+- Modern, eye-catching Neo-brutalist UI design
+- Tailwind CSS utility classes with custom neo-brutalist components
+- Interactive UI elements with playful animations
 - Gunicorn integration for production deployment
 
 ## Installation

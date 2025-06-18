@@ -4,6 +4,8 @@ from flask_login import LoginManager
 # Initialize login manager
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'  # Specify the login view
+login_manager.login_message = "You must be logged in to access this page!"
+login_manager.login_message_category = "error"
 
 def create_app():
     """Initialize the core application."""

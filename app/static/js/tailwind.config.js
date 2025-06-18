@@ -3,19 +3,21 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+        neobrutalism: {
+          yellow: '#FFFF03',
+          pink: '#ff2cc0',
+          blue: '#1900ff',
+          green: '#42eb42',
+          orange: '#ff6b35',
+          black: '#000000',
+          white: '#ffffff',
+          gray: '#f2f2f2'
         }
+      },
+      boxShadow: {
+        'brutal': '5px 5px 0px 0px rgba(0,0,0,1)',
+        'brutal-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
+        'brutal-xl': '12px 12px 0px 0px rgba(0,0,0,1)',
       }
     }
   }

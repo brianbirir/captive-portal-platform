@@ -4,6 +4,12 @@ A Flask-based captive portal platform.
 
 ## Features
 
+### Product Features
+
+> TODO: Added product features later
+
+### Technical Features
+
 - User authentication system with SQLite database
 - Database migration support via Flask-Migrate (Alembic)
 - Secure password handling

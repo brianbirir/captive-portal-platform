@@ -2,6 +2,8 @@
 
 ## Raspberry Pi Deployment
 
+The Raspberry Pi can be used a test device to create a captive portal. The deployment script automates the setup of the Flask application, database, and necessary services to run a captive portal on the Raspberry Pi.
+
 For easy deployment on a Raspberry Pi with Nginx as a reverse proxy, a comprehensive deployment script is included.
 
 ### Deployment Flow
